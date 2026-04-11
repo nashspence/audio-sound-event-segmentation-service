@@ -1,0 +1,24 @@
+services:
+  api:
+    build:
+      context: .
+    env_file:
+      - .env
+    ports:
+      - "${SERVICE_PORT}:${SERVICE_PORT}"
+    volumes:
+      - model-cache:/models
+    gpus: all
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - curl -fsS "http://127.0.0.1:${SERVICE_PORT}/healthz" | grep -q '"ready":true'
+      interval: 15s
+      timeout: 10s
+      retries: 20
+      start_period: 30s
+
+volumes:
+  model-cache:
+

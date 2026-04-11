@@ -1,0 +1,11 @@
+PyYAML==6.0.2
+dcase_util==0.2.20
+einops==0.8.1
+fastapi==0.115.12
+gdown==5.2.0
+h5py==3.13.0
+pandas==2.2.3
+python-multipart==0.0.20
+scipy==1.15.2
+uvicorn[standard]==0.34.0
+
