@@ -90,7 +90,7 @@ class ReadyAwareATSTSEDInferencer(ATSTSEDInferencer):
 
 class ATSTSEDService:
     def __init__(self) -> None:
-        self.service_name = "atst-sed-service"
+        self.service_name = "audio-sound-event-segmentation-service"
         self.model_name = "ATST-SED"
         default_base_checkpoint_url = (
             "https://drive.google.com/file/d/1_xb0_n3UNbUG_pH1vLHTviLfsaSfCzxz/view?usp=drive_link"

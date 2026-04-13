@@ -22,7 +22,7 @@ async def lifespan(_: FastAPI):
 
 
 app = FastAPI(
-    title="ATST-SED Service",
+    title="Audio Sound Event Segmentation Service",
     version="0.1.0",
     lifespan=lifespan,
 )
@@ -31,7 +31,7 @@ app = FastAPI(
 @app.get("/")
 def root() -> dict[str, str]:
     return {
-        "service": "atst-sed-service",
+        "service": "audio-sound-event-segmentation-service",
         "health": "/healthz",
         "detect": "/v1/detect",
     }
@@ -60,4 +60,3 @@ async def detect(
         with upload_path.open("wb") as handle:
             shutil.copyfileobj(file.file, handle)
         return service.detect(upload_path, filename, include_speech=include_speech)
-

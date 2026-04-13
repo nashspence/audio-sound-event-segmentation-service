@@ -1,5 +1,5 @@
 {
-  "name": "atst-sed-service dev",
+  "name": "audio-sound-event-segmentation-service dev",
   "build": {
     "dockerfile": "Dockerfile",
     "context": ".."
@@ -62,7 +62,7 @@
   ],
   "portsAttributes": {
     "8000": {
-      "label": "atst-sed-service"
+      "label": "audio-sound-event-segmentation-service"
     }
   }
 }
