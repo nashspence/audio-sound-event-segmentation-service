@@ -7,7 +7,7 @@ services:
     ports:
       - "${SERVICE_PORT}:${SERVICE_PORT}"
     volumes:
-      - model-cache:/models
+      - ${MODEL_CACHE_HOST_DIR:-./.cache/models}:${MODEL_DIR:-/models/cache}
     gpus: all
     restart: unless-stopped
     healthcheck:
@@ -18,7 +18,4 @@ services:
       timeout: 10s
       retries: 20
       start_period: 30s
-
-volumes:
-  model-cache:
 

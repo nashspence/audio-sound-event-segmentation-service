@@ -98,7 +98,7 @@ class ATSTSEDService:
         default_stage2_checkpoint_url = (
             "https://drive.google.com/file/d/1yMv05N0Nz5mSzlQ4YBb_sqOjazPbPDhw/view?usp=sharing"
         )
-        self.model_dir = Path(os.getenv("MODEL_DIR", "/models"))
+        self.model_dir = Path(os.getenv("MODEL_DIR", "/models/cache"))
         self.base_checkpoint_path = Path(
             os.getenv("ATST_BASE_CHECKPOINT_PATH", str(self.model_dir / "atst_as2M.ckpt"))
         )
