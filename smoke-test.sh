@@ -1,29 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
-
-cd "${PROJECT_ROOT}"
-
-for cmd in docker curl python3 git nvcc nvidia-smi; do
-  command -v "${cmd}" >/dev/null
-done
-
-python3 --version
-nvcc --version | tail -n 1
-nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader
-docker compose version
-test -S /var/run/docker.sock
-docker ps >/dev/null
-docker run --rm alpine:3.22 true
-docker run --rm --gpus all nvidia/cuda:12.8.1-base-ubuntu24.04 \
-  nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader
-
-if [[ ! -f .env ]]; then
-  cp .env.example .env
-fi
-
 set -a
 # shellcheck disable=SC1091
 source .env
